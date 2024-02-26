@@ -1,10 +1,17 @@
+
+
 // Basic demo for accelerometer readings from Adafruit MPU6050
 
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
 
+// khỏi tao bien để lay dl tu MPU6050
 Adafruit_MPU6050 mpu;
+const int soundSensorPin = 15; // Đầu vào của cảm biến âm thanh được kết nối với chân analog A0
+
+
+
 
 void setup(void) {
   Serial.begin(115200);
@@ -26,6 +33,7 @@ void setup(void) {
   mpu.setGyroRange(MPU6050_RANGE_250_DEG);
   mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
   Serial.println("");
+  pinMode(soundSensorPin, INPUT); // Thiết lập chân đầu vào của cảm biến âm thanh
   delay(100);
 }
 
@@ -33,6 +41,7 @@ void loop() {
 
   /* Get new sensor events with the readings */
   sensors_event_t a, g, temp;
+  int soundValue = analogRead(soundSensorPin); // Đọc giá trị từ cảm biến âm thanh
   mpu.getEvent(&a, &g, &temp);
 
   /* Print out the values */
@@ -53,7 +62,11 @@ void loop() {
   Serial.print(",");
   Serial.print("GyroZ:");
   Serial.print(g.gyro.z);
+  Serial.println(",");
+ 
+  
+  Serial.print("Sound:");
+  Serial.println(soundValue); // In giá trị âm thanh lên Serial Monitor
   Serial.println("");
-
   delay(10);
 }
