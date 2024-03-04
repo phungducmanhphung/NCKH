@@ -16,7 +16,7 @@ void setup(void) {
     delay(10); // will pause Zero, Leonardo, etc until serial console opens
   }
 
-  // Wire.begin(16, 0);
+  Wire.begin(16, 0);
 
   // Try to initialize!
   if (!mpu.begin()) {
