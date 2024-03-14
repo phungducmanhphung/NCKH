@@ -1,10 +1,7 @@
 
-
-// Basic demo for accelerometer readings from Adafruit MPU6050
-
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
-#include <Wire.h>
+// #include <Wire.h>
 
 // khỏi tao bien để lay dl tu MPU6050
 Adafruit_MPU6050 mpu;
@@ -13,6 +10,7 @@ Adafruit_MPU6050 mpu;
 void setup(void) {
   Serial.begin(115200);
   while (!Serial) {
+
     delay(10); // will pause Zero, Leonardo, etc until serial console opens
   }
 
@@ -20,7 +18,7 @@ void setup(void) {
 
   // Try to initialize!
   if (!mpu.begin()) {
-    // Serial.println("Failed to find MPU6050 chip");
+    Serial.println("Failed to find MPU6050 chip");
     while (1) {
       delay(10);
     }
@@ -64,5 +62,5 @@ void loop() {
   // Serial.print("Sound:");
   // Serial.println(soundValue); // In giá trị âm thanh lên Serial Monitor
   // Serial.println("");
-  delay(32);
+  delay(25);
 }
