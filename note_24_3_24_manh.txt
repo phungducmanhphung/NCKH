@@ -1,0 +1,5 @@
+data/dac_trung: 
+    - chứa các file thể hiện đặc trưng của các mẫu dữ liệu (mẫu dữ liệu trong 5s) (là 1 file trong data/output2)
+data/dac_trung_2: 
+    - chứa 2 file đặc trưng của dữ liệu AN và NM
+    - Mỗi hàng trong một file là một file trong data/dac_trung
